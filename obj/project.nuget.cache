@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nyWS4TIEIGSE5/1Svq82kawumFalEKCJFJ6i+F0SUPAmtSx12GPgNgu8X9zbTZHgjzbbqQyddCRIS9FTEgqqyQ==",
+  "dgSpecHash": "KZDsx66DrryGmHxTnh1evcKKFt1gC+YcEu0zE53h/4NBJXLoSbkPCqc3X3L719mo3j6WRSgdp/SvUa3eMlvD8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48857364\\Downloads\\TP06\\TP06.csproj",
+  "projectFilePath": "Z:\\2025\\PROGRAMACION\\TP06\\TP06.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\48857364\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\48857364\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

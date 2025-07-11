@@ -4,5 +4,9 @@
 
 <div>
     <h1>Index</h1>
-    <p>Bienvenidos al sitio web de NombreProyecto</p>
-</div>
+    <form action='@Url.Action("IniciarSesion", "home")' method="POST" enctype="multipart/form-data">
+        Ingresa tu mail : <input type="mail" name="mailIntegrante">
+        Ingresa tu contraseña : <input type="text" name="passIntegrante">
+        <input type="submit" name="enviar">
+    </form>
+</div>    

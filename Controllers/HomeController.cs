@@ -16,30 +16,43 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         Integrantes integrante = new Integrantes();
-        HttpContext.Session.SetString("Integrantes", Objeto.ObjectToString(Integrantes));
+        GuardarIntegranteEnSession(integrante);
         return View();
     }
     public IActionResult IniciarSesion(string mailIntegrante, string passIntegrante)
     {
-        Integrantes integrantes = Objeto.StringToObject<Integrantes>(HttpContext.Session.GetString("Integrantes"));
-        integrantes = BD.devolverEquipo(mailIntegrante, passIntegrante);
-        if (integrantes = null)
+        Integrantes integrante = ObtenerIntegranteDesdeSession();  
+        integrante = BD.devolverIntegrante(mailIntegrante, passIntegrante);
+        if (integrante == null)
         {
             ViewBag.mensaje = "Contraseña o Correo incorrectos, por favor verifique de vuelta";
             ViewBag.view = "Error";
         }
-        
+
         else
         {
             ViewBag.view = "info";
-            ViewBag.nombre = integrantes.nombre;
-            ViewBag.estatura = integrantes.estatura;
-            ViewBag.orientacion = integrantes.orientacion;
-            ViewBag.sexo = integrantes.sexo;
-            ViewBag.edad = integrantes.edad;
-            ViewBag.peliculaFav = integrantes.peliculaFav;
+            ViewBag.nombre = integrante.nombre;
+            ViewBag.estatura = integrante.estatura;
+            ViewBag.orientacion = integrante.orientacion;
+            ViewBag.sexo = integrante.sexo;
+            ViewBag.edad = integrante.edad;
+            ViewBag.peliculaFav = integrante.peliculaFav;
         }
-        HttpContext.Session.SetString("Integrantes", Objeto.ObjectToString(Integrantes));
+        HttpContext.Session.SetString("Integrantes", Objeto.ObjectToString(integrante));
         return View(ViewBag.view);
     }
+        private void GuardarIntegranteEnSession(Integrantes integrante) //Para guardar el objeto integrante en la sesión(guarda la informacion de jugador a medida que avanza)
+    {
+        HttpContext.Session.SetString("Integrantes", Objeto.ObjectToString(integrante));
+    }
+
+    private Integrantes ObtenerIntegranteDesdeSession()//Busca si un jugador ya tiene un integrante en sesión, si no lo tiene crea uno nuevo
+    {
+        Integrantes integrante = Objeto.StringToObject<Integrantes>(HttpContext.Session.GetString("Integrantes"));
+        
+        return integrante;
+
+    }
 }
+

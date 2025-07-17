@@ -1,15 +1,16 @@
 using Microsoft.Data.SqlClient;
 using Dapper;
+using TP06.Models;
 
-static class BD
+public static class BD
 {
 
-    public List<Integrantes> devolverEquipo(string Email, string Contraseña)
+    public static Integrantes devolverIntegrante(string Email, string Contraseña)
     {
         Integrantes integrante = null;
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-             string query = "SELECT FROM Integrantes WHERE Email = @email AND Contraseña = @contraseña";
+             string query = "SELECT *FROM Integrantes WHERE Email = @email AND Contraseña = @contraseña";
              integrante = connection.Query<Integrantes>(query, new {email = Email, contraseña = Contraseña});
         }
        return integrante;

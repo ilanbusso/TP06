@@ -1,28 +1,33 @@
 using Newtonsoft.Json;
-namespace TP06.Integrantes.Models;
-public class Integrantes{  
-        
-     [JsonProperty]
-        public string email { get; set; }
+namespace TP06.Models;
+
+public class Integrantes
+{
     [JsonProperty]
-        public string password { get; set; }
+    public string nombre { get; set; }
 
     [JsonProperty]
-        public double estatura { get; set; }
+    public string email { get; set; }
     [JsonProperty]
-        public string orientacion { get; set; }
-    [JsonProperty]
-        public string peliculaFav { get; set; }
+    public string password { get; set; }
 
     [JsonProperty]
-        public string sexo { get; set; }
+    public double estatura { get; set; }
     [JsonProperty]
-        public string edad { get; set; }
+    public string orientacion { get; set; }
+    [JsonProperty]
+    public string peliculaFav { get; set; }
 
-    public Integrantes(){
+    [JsonProperty]
+    public string sexo { get; set; }
+    [JsonProperty]
+    public string edad { get; set; }
+
+    public Integrantes()
+    {
 
     }
 
-    
+
 
 }

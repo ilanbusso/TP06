@@ -19,28 +19,25 @@ public class HomeController : Controller
         GuardarIntegranteEnSession(integrante);
         return View();
     }
-    public IActionResult IniciarSesion(string mailIntegrante, string passIntegrante)
+    public IActionResult IniciarSesion(string nombreIntegrante, string passIntegrante)
     {
+        string view;
         Integrantes integrante = ObtenerIntegranteDesdeSession();  
-        integrante = BD.devolverIntegrante(mailIntegrante, passIntegrante);
+        integrante = BD.devolverIntegrante(nombreIntegrante, passIntegrante);
         if (integrante == null)
         {
             ViewBag.mensaje = "Contraseña o Correo incorrectos, por favor verifique de vuelta";
-            ViewBag.view = "Error";
+            view = "Error";
         }
 
         else
         {
-            ViewBag.view = "info";
-            ViewBag.nombre = integrante.nombre;
-            ViewBag.estatura = integrante.estatura;
-            ViewBag.orientacion = integrante.orientacion;
-            ViewBag.sexo = integrante.sexo;
-            ViewBag.edad = integrante.edad;
-            ViewBag.peliculaFav = integrante.peliculaFav;
+            view = "info";
+            ViewBag.integrante = integrante;
+            ViewBag.integrantes = BD.devolverGrupo(integrante);
         }
-        HttpContext.Session.SetString("Integrantes", Objeto.ObjectToString(integrante));
-        return View(ViewBag.view);
+        GuardarIntegranteEnSession(integrante);
+        return View(view);
     }
         private void GuardarIntegranteEnSession(Integrantes integrante) //Para guardar el objeto integrante en la sesión(guarda la informacion de jugador a medida que avanza)
     {

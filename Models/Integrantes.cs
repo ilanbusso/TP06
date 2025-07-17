@@ -7,8 +7,6 @@ public class Integrantes
     public string nombre { get; set; }
 
     [JsonProperty]
-    public string email { get; set; }
-    [JsonProperty]
     public string password { get; set; }
 
     [JsonProperty]
@@ -23,6 +21,8 @@ public class Integrantes
     [JsonProperty]
     public string edad { get; set; }
 
+    [JsonProperty]
+    public string equipo { get; set; }
     public Integrantes()
     {
 

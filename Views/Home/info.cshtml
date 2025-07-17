@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "info";
+}
+
+<h1>INTEGRANTES DEL GRUPO</h1>
+<h1>@ViewBag.integrante.equipo</h1>
+@foreach(Integrantes integrante in ViewBag.integrantes){
+    <h2>@integrante.nombre</h2>
+    <h3>@integrante.estatura</h3>
+    <h3>@integrante.orientacion</h3>
+    <h3>@integrante.peliculaFav</h3>
+    <h3>@integrante.estatura</h3>
+    <h3>@integrante.sexo</h3>
+    <h3>@integrante.edad</h3>
+}
